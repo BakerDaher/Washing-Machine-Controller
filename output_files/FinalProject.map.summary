@@ -1,0 +1,9 @@
+Analysis & Synthesis Status : Successful - Wed Jun  7 09:06:12 2023
+Quartus Prime Version : 22.1std.0 Build 915 10/25/2022 SC Lite Edition
+Revision Name : FinalProject
+Top-level Entity Name : clock_divider
+Family : MAX V
+Total logic elements : 19
+Total pins : 3
+Total virtual pins : 0
+UFM blocks : 0 / 1 ( 0 % )

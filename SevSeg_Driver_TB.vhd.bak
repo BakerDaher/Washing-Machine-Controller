@@ -1,0 +1,95 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+
+ENTITY SevSeg_Driver_TB IS
+END SevSeg_Driver_TB;
+
+ARCHITECTURE behavior OF SevSeg_Driver_TB IS
+
+  -- Component declaration for the unit under test (UUT)
+  COMPONENT SevSeg_Driver
+  PORT (
+    time_sn        : IN  std_logic_vector(4 DOWNTO 0);
+    userMode       : IN  std_logic_vector(4 DOWNTO 0);
+    CLK            : IN  std_logic;
+    start          : IN  std_logic;
+    SEV_SEG_DATA   : OUT std_logic_vector(4 DOWNTO 0);
+    SEV_SEG_DRIVER : OUT std_logic_vector(7 DOWNTO 0)
+  );
+  END COMPONENT;
+
+  -- Signal declarations
+  SIGNAL time_sn        : std_logic_vector(4 DOWNTO 0);
+  SIGNAL userMode       : std_logic_vector(4 DOWNTO 0);
+  SIGNAL CLK            : std_logic := '0';
+  SIGNAL start          : std_logic;
+  SIGNAL SEV_SEG_DATA   : std_logic_vector(4 DOWNTO 0);
+  SIGNAL SEV_SEG_DRIVER : std_logic_vector(7 DOWNTO 0);
+
+  -- Clock period definitions
+  CONSTANT CLK_PERIOD : TIME := 10 ns;
+
+BEGIN
+
+  -- Instantiate the unit under test (UUT)
+  uut: SevSeg_Driver PORT MAP (
+    time_sn        => time_sn,
+    userMode       => userMode,
+    CLK            => CLK,
+    start          => start,
+    SEV_SEG_DATA   => SEV_SEG_DATA,
+    SEV_SEG_DRIVER => SEV_SEG_DRIVER
+  );
+
+  -- Clock process definitions
+  CLK_PROCESS : PROCESS
+  BEGIN
+    CLK <= '0';
+    WAIT FOR CLK_PERIOD / 2;
+    CLK <= '1';
+    WAIT FOR CLK_PERIOD / 2;
+  END PROCESS;
+
+  -- Stimulus process
+  STIM_PROCESS : PROCESS
+  BEGIN
+    -- Initialize inputs
+    time_sn <= "00000";
+    userMode <= "00000";
+    start <= '0';
+
+    -- Wait for some time to observe the outputs
+    WAIT FOR CLK_PERIOD * 10;
+
+    -- Test case 1
+    time_sn <= "00101";  -- Example values, modify as needed
+    userMode <= "01000";
+    start <= '1';
+    WAIT FOR CLK_PERIOD * 10;
+
+    -- Test case 2
+    time_sn <= "11111";
+    userMode <= "00100";
+    start <= '0';
+    WAIT FOR CLK_PERIOD * 10;
+
+    -- Add more test cases as needed
+
+    -- End the simulation
+    WAIT;
+  END PROCESS;
+
+  -- Assertion processes
+  ASSERTION_PROCESS : PROCESS
+  BEGIN
+    WAIT FOR CLK_PERIOD * 2;
+
+    -- Add assertions here to verify the expected outputs
+    -- For example:
+    -- assert SEV_SEG_DATA = "01010" report "Error: SEV_SEG_DATA mismatch" severity error;
+    -- assert SEV_SEG_DRIVER = "11111110" report "Error: SEV_SEG_DRIVER mismatch" severity error;
+
+    WAIT;
+  END PROCESS;
+
+END behavior;

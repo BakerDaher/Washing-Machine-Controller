@@ -1,0 +1,101 @@
+m255
+K4
+z2
+!s11e vcom 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/HP/Desktop/Final_Project/Final_Project/simulation/modelsim
+Eclock_divider
+Z1 w1686117981
+Z2 DPx4 ieee 16 vital_primitives 0 22 G>kiXP8Q9dRClKfK1Zn7j1
+Z3 DPx4 maxv 14 maxv_atom_pack 0 22 gXeeS6]z<:l;8K;k6ZfhQ3
+Z4 DPx4 ieee 12 vital_timing 0 22 J>EBealN09f8GzldA[z2>3
+Z5 DPx4 maxv 15 maxv_components 0 22 M5HhzK`_FJon?3FV>PPZN0
+Z6 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z7 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 0
+R0
+Z8 8FinalProject.vho
+Z9 FFinalProject.vho
+l0
+L35 1
+VXTD:nW?kjlzN]jCR7FN`E1
+!s100 ECZb1SRDhFagh_SONWb]_1
+Z10 OV;C;2020.1;71
+31
+Z11 !s110 1686118021
+!i10b 1
+Z12 !s108 1686118021.000000
+Z13 !s90 -reportprogress|300|-93|-work|work|FinalProject.vho|
+Z14 !s107 FinalProject.vho|
+!i113 1
+Z15 o-93 -work work
+Z16 tExplicit 1 CvgOpt 0
+Astructure
+R2
+R3
+R4
+R5
+R6
+R7
+DEx4 work 13 clock_divider 0 22 XTD:nW?kjlzN]jCR7FN`E1
+!i122 0
+l88
+L46 533
+VKdeST^jdRYAMkkALobM`60
+!s100 ^:HfKD8SYScQEnOK21nMD1
+R10
+31
+R11
+!i10b 1
+R12
+R13
+R14
+!i113 1
+R15
+R16
+Eclock_divider_tb
+Z17 w1686069476
+R6
+R7
+!i122 1
+R0
+Z18 8C:/Users/HP/Desktop/Final_Project/Final_Project/clock_divider_tb.vhd
+Z19 FC:/Users/HP/Desktop/Final_Project/Final_Project/clock_divider_tb.vhd
+l0
+L4 1
+VLL^dRGBm@PZ90]9[?Y_V<1
+!s100 2HcB4]KBZ?>YPE7ib[dP`3
+R10
+31
+R11
+!i10b 1
+R12
+Z20 !s90 -reportprogress|300|-93|-work|work|C:/Users/HP/Desktop/Final_Project/Final_Project/clock_divider_tb.vhd|
+!s107 C:/Users/HP/Desktop/Final_Project/Final_Project/clock_divider_tb.vhd|
+!i113 1
+R15
+R16
+Abehavioral
+R6
+R7
+DEx4 work 16 clock_divider_tb 0 22 LL^dRGBm@PZ90]9[?Y_V<1
+!i122 1
+l23
+L7 49
+V;i0<Y@iB@D[ePTO0F>53L2
+!s100 BR1RggcVzm]7j?i7Kk8oB3
+R10
+31
+R11
+!i10b 1
+R12
+R20
+Z21 !s107 C:/Users/HP/Desktop/Final_Project/Final_Project/clock_divider_tb.vhd|
+!i113 1
+R15
+R16

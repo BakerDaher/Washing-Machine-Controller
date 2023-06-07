@@ -1,0 +1,90 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity washing_machine_tb is
+end washing_machine_tb;
+
+architecture Behavioral of washing_machine_tb is
+    -- Constants
+    constant CLK_PERIOD : time := 10 ns; -- Clock period
+
+    -- Component declaration
+    component washing_machine
+        Port(
+            CK       : in std_logic;
+            start    : in std_logic;
+            reset    : in std_logic;
+            userMode : in std_logic_vector(4 downto 0);
+            state    : out std_logic_vector(1 downto 0);
+            time_sn  : out std_logic_vector(4 downto 0)
+        );
+    end component;
+
+    -- Signals
+    signal CK      : std_logic := '0';
+    signal start   : std_logic := '0';
+    signal reset   : std_logic := '0';
+    signal userMode: std_logic_vector(4 downto 0) := (others => '0');
+    signal state   : std_logic_vector(1 downto 0);
+    signal time_sn : std_logic_vector(4 downto 0);
+
+begin
+    -- Instantiate the unit under test (UUT)
+    uut: washing_machine port map (
+        CK       => CK,
+        start    => start,
+        reset    => reset,
+        userMode => userMode,
+        state    => state,
+        time_sn  => time_sn
+    );
+
+    -- Clock process
+    process
+    begin
+        while now < 1000 ns loop -- Simulate for 1000 ns
+            CK <= '0';
+            wait for CLK_PERIOD / 2;
+            CK <= '1';
+            wait for CLK_PERIOD / 2;
+        end loop;
+        wait;
+    end process;
+
+    -- Stimulus process
+    process
+    begin
+        -- Initialize inputs
+        start <= '0';
+        reset <= '1';
+        userMode <= "00000";
+        wait for 10 ns;
+
+        -- Deassert reset
+        reset <= '0';
+        wait for 10 ns;
+
+        -- Set inputs for different test scenarios
+        -- Test case 1: start the washing machine
+        start <= '1';
+        wait for 50 ns;
+        start <= '0';
+        wait for 100 ns;
+
+        -- Test case 2: change user mode
+        userMode <= "01000";
+        wait for 100 ns;
+
+        -- Test case 3: reset the washing machine
+        reset <= '1';
+        wait for 10 ns;
+        reset <= '0';
+        wait for 100 ns;
+
+        -- Add more test cases as needed
+
+        -- End simulation
+        wait;
+    end process;
+
+end Behavioral;

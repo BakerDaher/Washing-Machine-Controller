@@ -1,0 +1,22 @@
+|clock_divider
+reset => HUNDREDHZCLOCK~reg0.ACLR
+reset => counter[0].ENA
+reset => counter[7].ENA
+reset => counter[6].ENA
+reset => counter[5].ENA
+reset => counter[4].ENA
+reset => counter[3].ENA
+reset => counter[2].ENA
+reset => counter[1].ENA
+MCLK => counter[0].CLK
+MCLK => counter[1].CLK
+MCLK => counter[2].CLK
+MCLK => counter[3].CLK
+MCLK => counter[4].CLK
+MCLK => counter[5].CLK
+MCLK => counter[6].CLK
+MCLK => counter[7].CLK
+MCLK => HUNDREDHZCLOCK~reg0.CLK
+HUNDREDHZCLOCK << HUNDREDHZCLOCK~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
